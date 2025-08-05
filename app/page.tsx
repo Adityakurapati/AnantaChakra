@@ -44,22 +44,27 @@ export default function AnantaChakraWebsite() {
   }
 
   const handleSubmit = async (formData: FormData) => {
-    setFormStatus("sending")
+    setFormStatus("sending");
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      const isSuccess = Math.random() > 0.3
-      if (isSuccess) {
-        setFormStatus("success")
-        setTimeout(() => setFormStatus("idle"), 3000)
-      } else {
-        setFormStatus("error")
-        setTimeout(() => setFormStatus("idle"), 3000)
-      }
+        const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+        }
+
+        setFormStatus("success");
+        setTimeout(() => setFormStatus("idle"), 3000);
     } catch (error) {
-      setFormStatus("error")
-      setTimeout(() => setFormStatus("idle"), 3000)
+        console.error('Submission error:', error);
+        setFormStatus("error");
+        setTimeout(() => setFormStatus("idle"), 3000);
     }
-  }
+  };
 
   return (
     <>
