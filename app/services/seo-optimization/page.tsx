@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import CommonHeader from "@/components/common-header"
 
 const seoMetrics = [
   { name: "Keyword Rankings", current: 85, target: 100, color: "from-green-400 to-emerald-500" },
@@ -35,9 +36,11 @@ export default function SEOOptimizationPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-x-hidden">
+      <CommonHeader />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,7 +62,7 @@ export default function SEOOptimizationPage() {
             </div>
           </div>
 
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             SEO Optimization Mastery
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -88,14 +91,14 @@ export default function SEOOptimizationPage() {
             <TrendingUp className="inline-block mr-4 w-10 h-10" />
             SEO Performance Dashboard
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {seoMetrics.map((metric, index) => (
               <motion.div
                 key={metric.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-400/50 transition-all duration-300"
+                className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-blue-400/50 transition-all duration-300"
               >
                 <h3 className="text-lg font-bold mb-4">{metric.name}</h3>
                 <div className="mb-4">
@@ -129,7 +132,7 @@ export default function SEOOptimizationPage() {
             <Zap className="inline-block mr-4 w-10 h-10" />
             SEO Tools Arsenal
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {seoTools.map((tool, index) => (
               <motion.div
                 key={tool.name}
@@ -177,7 +180,7 @@ export default function SEOOptimizationPage() {
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             Unlock These SEO Powers
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "Organic Traffic Boost",

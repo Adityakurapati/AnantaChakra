@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import CommonHeader from "@/components/common-header"
 
 const achievements = [
   { name: "Traffic Booster", description: "Increase website traffic by 200%", icon: TrendingUp, unlocked: true },
@@ -35,9 +36,11 @@ export default function DigitalMarketingPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
+      <CommonHeader />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +61,7 @@ export default function DigitalMarketingPage() {
             </div>
           </div>
 
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Digital Marketing Mastery
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -87,14 +90,14 @@ export default function DigitalMarketingPage() {
             <Gamepad2 className="inline-block mr-4 w-10 h-10" />
             Skill Tree
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {skillTree.map((skill, index) => (
               <motion.div
                 key={skill.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10"
+                className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10"
               >
                 <h3 className="text-lg font-bold mb-4">{skill.name}</h3>
                 <div className="mb-2">
@@ -127,7 +130,7 @@ export default function DigitalMarketingPage() {
             <Trophy className="inline-block mr-4 w-10 h-10" />
             Achievements Unlocked
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.name}

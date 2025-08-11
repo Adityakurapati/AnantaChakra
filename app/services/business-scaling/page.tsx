@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import CommonHeader from "@/components/common-header"
 
 const scalingMetrics = [
   { name: "Market Expansion", value: "15+ Countries", progress: 88, color: "from-pink-400 to-rose-500" },
@@ -37,9 +38,11 @@ export default function BusinessScalingPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-pink-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-pink-900 to-slate-900 text-white overflow-x-hidden">
+      <CommonHeader />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +65,7 @@ export default function BusinessScalingPage() {
             </div>
           </div>
 
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
             International Business Scaling
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -91,7 +94,7 @@ export default function BusinessScalingPage() {
             <TrendingUp className="inline-block mr-4 w-10 h-10" />
             Global Expansion Metrics
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {scalingMetrics.map((metric, index) => (
               <motion.div
                 key={metric.name}
@@ -99,7 +102,7 @@ export default function BusinessScalingPage() {
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, rotateX: 5 }}
-                className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-pink-400/50 transition-all duration-300 text-center"
+                className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-pink-400/50 transition-all duration-300 text-center"
               >
                 <h3 className="text-lg font-bold mb-4">{metric.name}</h3>
                 <div className="text-4xl font-bold text-pink-400 mb-4">{metric.value}</div>
@@ -127,7 +130,7 @@ export default function BusinessScalingPage() {
             <Globe className="inline-block mr-4 w-10 h-10" />
             Elite Scaling Arsenal
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {scalingServices.map((service, index) => (
               <motion.div
                 key={service.name}
@@ -180,7 +183,7 @@ export default function BusinessScalingPage() {
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
             Global Domination Achievements
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "Market Penetration",

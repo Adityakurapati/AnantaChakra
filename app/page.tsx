@@ -4,11 +4,12 @@ import type React from "react"
 import Head from "next/head"
 import { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
-import { ArrowRight, ChevronDown, Mail, MapPin, Star, Users, Award, TrendingUp, Zap, Shield, Globe } from "lucide-react"
+import { ArrowRight, ChevronDown, Mail, MapPin, Star, Users, Award, TrendingUp, Shield, Globe, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 export default function AnantaChakraWebsite() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -70,7 +71,6 @@ export default function AnantaChakraWebsite() {
     <>
       <Head>
         <title>AnantaChakra | Digital Marketing & Tech Solutions</title>
-        <title>AnantaChakra | Digital Marketing & Tech Solutions for Startups</title>
         <meta
           name="description"
           content="Top-rated digital marketing agency offering affordable SEO services, LinkedIn marketing, and cloud engineering for startups in India. 24/7 business tech support."
@@ -117,11 +117,12 @@ export default function AnantaChakraWebsite() {
           transition={{ duration: 0.8 }}
           className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/20 border-b border-white/10"
         >
-          <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="flex items-center gap-3 text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
             >
+              <img src="/favicon.png" alt="AnantaChakra" className="w-8 h-8" />
               AnantaChakra
             </motion.div>
             <div className="hidden md:flex space-x-8">
@@ -153,15 +154,15 @@ export default function AnantaChakraWebsite() {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20" />
           </motion.div>
 
-          <div className="container mx-auto px-6 text-center z-10">
+          <div className="container mx-auto px-4 sm:px-6 text-center z-10">
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={heroInView ? { scale: 1, rotate: 0 } : {}}
               transition={{ duration: 1, type: "spring", stiffness: 100 }}
               className="mb-8"
             >
-              <div className="w-32 h-32 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-purple-500/50">
-                <Zap className="w-16 h-16 text-white" />
+              <div className="w-32 h-32 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-purple-500/50 p-4">
+                <img src="/favicon.png" alt="AnantaChakra" className="w-20 h-20" />
               </div>
             </motion.div>
 
@@ -169,7 +170,7 @@ export default function AnantaChakraWebsite() {
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
+              className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
             >
               {["A", "n", "a", "n", "t", "a", "C", "h", "a", "k", "r", "a"].map((letter, index) => (
                 <motion.span
@@ -242,10 +243,19 @@ export default function AnantaChakraWebsite() {
               >
                 Discover More <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
+              <Link href="/services">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-4 text-lg rounded-full backdrop-blur-sm bg-white/5 transform hover:scale-105 transition-all duration-300"
+                >
+                  Explore Services
+                </Button>
+              </Link>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-4 text-lg rounded-full backdrop-blur-sm bg-white/5 transform hover:scale-105 transition-all duration-300"
+                className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 text-lg rounded-full backdrop-blur-sm bg-white/5 transform hover:scale-105 transition-all duration-300"
                 onClick={() => scrollToSection(contactRef)}
               >
                 Get Started
@@ -265,7 +275,7 @@ export default function AnantaChakraWebsite() {
 
         {/* About Section */}
         <section ref={aboutRef} className="py-20 relative">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={aboutInView ? { opacity: 1, y: 0 } : {}}
@@ -318,7 +328,7 @@ export default function AnantaChakraWebsite() {
 
         {/* Services Section */}
         <section ref={servicesRef} className="py-20">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={servicesInView ? { opacity: 1, y: 0 } : {}}
@@ -333,7 +343,7 @@ export default function AnantaChakraWebsite() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
                   icon: TrendingUp,
@@ -397,7 +407,7 @@ export default function AnantaChakraWebsite() {
 
         {/* Contact Section */}
         <section ref={contactRef} className="py-20 bg-gradient-to-r from-slate-900 to-purple-900">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={contactInView ? { opacity: 1, y: 0 } : {}}

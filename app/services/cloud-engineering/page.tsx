@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import CommonHeader from "@/components/common-header"
 
 const cloudMetrics = [
   { name: "Uptime", value: "99.99%", progress: 99.99, color: "from-green-400 to-emerald-500" },
@@ -37,9 +38,11 @@ export default function CloudEngineeringPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white overflow-x-hidden">
+      <CommonHeader />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +65,7 @@ export default function CloudEngineeringPage() {
             </div>
           </div>
 
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Cloud Engineering Mastery
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -91,7 +94,7 @@ export default function CloudEngineeringPage() {
             <Settings className="inline-block mr-4 w-10 h-10" />
             Cloud Performance Metrics
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {cloudMetrics.map((metric, index) => (
               <motion.div
                 key={metric.name}
@@ -127,7 +130,7 @@ export default function CloudEngineeringPage() {
             <Zap className="inline-block mr-4 w-10 h-10" />
             Cloud Technology Stack
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {cloudServices.map((service, index) => (
               <motion.div
                 key={service.name}
@@ -137,7 +140,7 @@ export default function CloudEngineeringPage() {
                 whileHover={{ scale: 1.02, rotateY: 3 }}
                 className="group"
               >
-                <Card className="backdrop-blur-md bg-white/5 border-white/10 hover:border-indigo-400/50 transition-all duration-300 h-full">
+                <Card className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-indigo-400/50 transition-all duration-300 h-full">
                   <CardContent className="p-8">
                     <div className="flex items-center justify-between mb-6">
                       <div
@@ -182,7 +185,7 @@ export default function CloudEngineeringPage() {
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Cloud Transformation Benefits
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "Scalability",

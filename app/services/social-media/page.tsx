@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import CommonHeader from "@/components/common-header"
 
 const socialMetrics = [
   { platform: "Instagram", followers: "50K+", engagement: "8.5%", color: "from-pink-400 to-rose-500" },
@@ -37,9 +38,11 @@ export default function SocialMediaPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900 text-white overflow-x-hidden">
+      <CommonHeader />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +65,7 @@ export default function SocialMediaPage() {
             </div>
           </div>
 
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
             Social Media Mastery
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -91,7 +94,7 @@ export default function SocialMediaPage() {
             <Share2 className="inline-block mr-4 w-10 h-10" />
             Platform Performance
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {socialMetrics.map((metric, index) => (
               <motion.div
                 key={metric.platform}
@@ -99,7 +102,7 @@ export default function SocialMediaPage() {
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, rotateY: 5 }}
-                className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-green-400/50 transition-all duration-300"
+                className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-green-400/50 transition-all duration-300"
               >
                 <div
                   className={`w-12 h-12 bg-gradient-to-r ${metric.color} rounded-full flex items-center justify-center mb-4 mx-auto`}
@@ -129,7 +132,7 @@ export default function SocialMediaPage() {
             <Zap className="inline-block mr-4 w-10 h-10" />
             Content Mastery Levels
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {contentTypes.map((content, index) => (
               <motion.div
                 key={content.name}
@@ -139,7 +142,7 @@ export default function SocialMediaPage() {
                 whileHover={{ scale: 1.02, rotateX: 2 }}
                 className="group"
               >
-                <Card className="backdrop-blur-md bg-white/5 border-white/10 hover:border-green-400/50 transition-all duration-300 h-full">
+                <Card className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-green-400/50 transition-all duration-300 h-full">
                   <CardContent className="p-8">
                     <div className="flex items-center justify-between mb-6">
                       <div
@@ -184,7 +187,7 @@ export default function SocialMediaPage() {
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
             Social Media Power-Ups
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "Viral Content Creation",

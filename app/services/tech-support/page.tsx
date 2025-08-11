@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import CommonHeader from "@/components/common-header"
 
 const supportMetrics = [
   { name: "Response Time", value: "< 2 mins", target: 100, color: "from-green-400 to-emerald-500" },
@@ -37,9 +38,11 @@ export default function TechSupportPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white overflow-x-hidden">
+      <CommonHeader />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +65,7 @@ export default function TechSupportPage() {
             </div>
           </div>
 
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
             Tech Support & Freelancing
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -91,7 +94,7 @@ export default function TechSupportPage() {
             <Clock className="inline-block mr-4 w-10 h-10" />
             Support Performance
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {supportMetrics.map((metric, index) => (
               <motion.div
                 key={metric.name}
@@ -99,7 +102,7 @@ export default function TechSupportPage() {
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, rotateY: 5 }}
-                className="backdrop-blur-md bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-orange-400/50 transition-all duration-300 text-center"
+                className="backdrop-blur-md bg-white/5 p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-orange-400/50 transition-all duration-300 text-center"
               >
                 <h3 className="text-lg font-bold mb-4">{metric.name}</h3>
                 <div className="text-3xl font-bold text-orange-400 mb-4">{metric.value}</div>
@@ -127,7 +130,7 @@ export default function TechSupportPage() {
             <Wrench className="inline-block mr-4 w-10 h-10" />
             Technical Expertise
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {techSkills.map((skill, index) => (
               <motion.div
                 key={skill.name}
@@ -180,7 +183,7 @@ export default function TechSupportPage() {
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
             Support Power-Ups
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: "24/7 Availability",
