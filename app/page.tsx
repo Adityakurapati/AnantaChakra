@@ -159,9 +159,9 @@ export default function AnantaChakraWebsite() {
                                                         initial={{ scale: 0, rotate: -180 }}
                                                         animate={heroInView ? { scale: 1, rotate: 0 } : {}}
                                                         transition={{ duration: 1, type: "spring", stiffness: 100 }}
-                                                        className="mb-8"
+                                                        className="mb-8 "
                                                 >
-                                                        <div className="w-32 h-32 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-purple-500/50 p-4">
+                                                        <div className="mt-[15vh] w-32 h-32 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-purple-500/50 p-4">
                                                                 <img src="/favicon.png" alt="AnantaChakra" className="w-20 h-20" />
                                                         </div>
                                                 </motion.div>
