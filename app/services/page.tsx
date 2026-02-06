@@ -1,141 +1,263 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ArrowRight, TrendingUp, Award, Users, Shield, Globe, Star } from "lucide-react"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { ArrowRight, CheckCircle, TrendingUp, Award, Users, Shield, Globe, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
-import CommonHeader from "@/components/common-header"
 
 const services = [
   {
     icon: TrendingUp,
     title: "Digital Marketing",
-    description: "Comprehensive digital marketing strategies to boost your online presence and drive growth.",
-    href: "/services/digital-marketing",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "from-purple-900 to-pink-900",
+    description: "Custom digital marketing solutions combining SEO, PPC, and strategic planning for startup growth on bootstrap budgets.",
+    features: [
+      "Search engine optimization (SEO)",
+      "Pay-per-click (PPC) campaigns",
+      "Content marketing strategy",
+      "Social media marketing",
+      "Email marketing campaigns",
+      "Conversion rate optimization",
+    ],
   },
   {
     icon: Award,
     title: "SEO Optimization",
-    description: "Advanced SEO techniques to improve your search rankings and organic traffic.",
-    href: "/services/seo-optimization",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "from-blue-900 to-cyan-900",
+    description: "Affordable SEO packages for startups including comprehensive audits, keyword research, and measurable results within 90 days.",
+    features: [
+      "Technical SEO audit",
+      "On-page optimization",
+      "Off-page SEO",
+      "Keyword research & strategy",
+      "Link building",
+      "Performance tracking & reporting",
+    ],
   },
   {
     icon: Users,
     title: "Social Media Management",
-    description: "Build and engage your community across all social media platforms.",
-    href: "/services/social-media",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "from-green-900 to-emerald-900",
+    description: "LinkedIn marketing packages and social channel optimization for effective lead generation and brand presence.",
+    features: [
+      "LinkedIn marketing campaigns",
+      "Facebook & Instagram management",
+      "Twitter/X strategy",
+      "Content calendar creation",
+      "Community engagement",
+      "Social analytics & reporting",
+    ],
   },
   {
     icon: Shield,
     title: "Tech Support & Freelancing",
-    description: "24/7 technical support and freelancing services for your business needs.",
-    href: "/services/tech-support",
-    color: "from-orange-500 to-red-500",
-    bgColor: "from-orange-900 to-red-900",
+    description: "Flexible remote tech support and freelancing services ideal for startups needing scalable expertise.",
+    features: [
+      "24/7 technical support",
+      "Dedicated tech team",
+      "Project-based work",
+      "Staff augmentation",
+      "Emergency support",
+      "Custom development",
+    ],
   },
   {
     icon: Globe,
     title: "Cloud Engineering",
-    description: "Scalable cloud solutions and infrastructure management for modern businesses.",
-    href: "/services/cloud-engineering",
-    color: "from-indigo-500 to-purple-500",
-    bgColor: "from-indigo-900 to-purple-900",
+    description: "AWS and GCP cloud engineering for cost-efficient, secure, and scalable infrastructure growth.",
+    features: [
+      "AWS infrastructure setup",
+      "GCP solutions",
+      "Cloud migration",
+      "DevOps & CI/CD",
+      "Infrastructure optimization",
+      "Security & compliance",
+    ],
   },
   {
-    icon: Star,
-    title: "International Business Scaling",
-    description: "Expand your business globally with our international scaling expertise.",
-    href: "/services/business-scaling",
-    color: "from-pink-500 to-rose-500",
-    bgColor: "from-pink-900 to-rose-900",
+    icon: Zap,
+    title: "Business Scaling",
+    description: "International expansion support with localization and market entry strategies for global growth.",
+    features: [
+      "Market research",
+      "Localization services",
+      "Go-to-market strategy",
+      "Global expansion planning",
+      "Partnership development",
+      "Growth consulting",
+    ],
   },
 ]
 
 export default function ServicesPage() {
+  const headerRef = useRef(null)
+  const servicesRef = useRef(null)
+  const processRef = useRef(null)
+
+  const headerInView = useInView(headerRef, { once: true })
+  const servicesInView = useInView(servicesRef, { once: true })
+  const processInView = useInView(processRef, { once: true })
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
-      <CommonHeader />
-
-      {/* Hero Section */}
-      <div className="container mx-auto px-4 sm:px-6 pt-24 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Our Services
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Comprehensive digital solutions designed to elevate your business to new heights
-          </p>
-        </motion.div>
-
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <Link href={service.href}>
-                <Card className="backdrop-blur-md bg-white/5 border-white/10 hover:border-purple-400/50 transition-all duration-300 h-full cursor-pointer">
-                  <CardContent className="p-6 sm:p-8">
-                    <div
-                      className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">{service.title}</h3>
-                    <p className="text-gray-300 leading-relaxed mb-6">{service.description}</p>
-                    <Button
-                      variant="outline"
-                      className="w-full border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white transition-all duration-300 bg-transparent"
-                    >
-                      Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss how we can help transform your business
-          </p>
-          <Link href="/#contact">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg rounded-full shadow-2xl shadow-purple-500/25 transform hover:scale-105 transition-all duration-300"
-            >
-              Get In Touch <ArrowRight className="ml-2 w-5 h-5" />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation */}
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/95 border-b border-border"
+      >
+        <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-3 text-xl font-bold text-primary hover:text-secondary transition-colors">
+            <img src="/favicon.png" alt="AnantaChakra" className="w-8 h-8" />
+            <span>AnantaChakra</span>
+          </Link>
+          <Link href="/">
+            <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
+              Back to Home
             </Button>
           </Link>
-        </motion.div>
-      </div>
+        </div>
+      </motion.nav>
+
+      {/* Header */}
+      <section ref={headerRef} className="pt-32 pb-16 bg-secondary">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+              Our Services
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive digital solutions designed to elevate your startup and accelerate business growth.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section ref={servicesRef} className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+                className="group"
+              >
+                <Card className="h-full border-border hover:border-primary transition-all duration-300 bg-card shadow-sm hover:shadow-lg hover:scale-105">
+                  <CardContent className="p-8">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section ref={processRef} className="py-24 bg-secondary">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={processInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Our Process</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We follow a structured approach to ensure your project's success
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {[
+              { step: "01", title: "Discovery", desc: "Understanding your business goals and challenges" },
+              { step: "02", title: "Strategy", desc: "Developing tailored solutions and roadmap" },
+              { step: "03", title: "Execution", desc: "Implementing with precision and expertise" },
+              { step: "04", title: "Optimization", desc: "Continuous improvement and scaling" },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={processInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary text-white font-bold text-xl mb-4">
+                  {item.step}
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold mb-6 text-foreground">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Let's discuss how AnantaChakra can help you achieve your business goals.
+            </p>
+            <Link href="/#contact">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              >
+                Contact Us <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 bg-secondary border-t border-border">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <div className="text-3xl font-bold mb-2 text-primary">
+              AnantaChakra
+            </div>
+            <p className="text-muted-foreground mb-6">Expert Digital Solutions for Startup Growth</p>
+            <p className="text-muted-foreground text-sm">
+              © {new Date().getFullYear()} AnantaChakra. All rights reserved.
+            </p>
+          </motion.div>
+        </div>
+      </footer>
     </div>
   )
 }

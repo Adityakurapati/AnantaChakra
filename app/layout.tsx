@@ -256,20 +256,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="icon" href="/favicon.ico" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <style>{`
-          html {
-            font-family: ${GeistSans.style.fontFamily};
-            --font-sans: ${GeistSans.variable};
-            --font-mono: ${GeistMono.variable};
-          }
-        `}</style>
       </head>
       <body>{children}</body>
     </html>
