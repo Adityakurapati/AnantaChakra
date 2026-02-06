@@ -566,6 +566,9 @@ export default function AnantaChakraWebsite() {
         <footer className="py-12 bg-secondary border-t border-border">
           <div className="container mx-auto px-4 sm:px-6 text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <a href="https://v0-portfolio-website-builder-eight-pi.vercel.app/" className="text-3xl font-bold mb-2 text-primary">
+                Aditya Kurapati
+              </a>
               <div className="text-3xl font-bold mb-2 text-primary">
                 AnantaChakra
               </div>
