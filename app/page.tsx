@@ -344,124 +344,7 @@ export default function AnantaChakraWebsite() {
         </section>
 
         {/* Featured Projects Section */}
-        <section ref={projectsRef} className="py-24 bg-secondary">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                Featured Projects
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Completed by AnantaChakra - A selection of our successful client projects.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {projects.map((project, index) => (
-                <motion.a
-                  key={index}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="group block h-full"
-                >
-                  <Card className="h-full border-2 border-border hover:border-primary transition-all duration-300 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 bg-card relative">
-                    {/* Interactive background gradient */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/30 to-secondary/10 rounded-full blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    <CardContent className="p-8 h-full flex flex-col">
-                      <div className="flex items-start justify-between gap-4 mb-4">
-                        <div className="flex-1">
-                          <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                            {project.name}
-                          </h3>
-                          <p className="text-muted-foreground text-base leading-relaxed group-hover:text-foreground transition-colors">
-                            {project.description}
-                          </p>
-                        </div>
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300 flex-shrink-0">
-                          <ExternalLink className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
-                        </div>
-                      </div>
-                      
-                      {/* Learn more link */}
-                      <div className="mt-auto pt-6 border-t border-border/50 group-hover:border-primary/30 transition-colors">
-                        <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
-                          Learn more <ArrowRight className="w-4 h-4" />
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Mobile Apps */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={projectsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-6">Mobile Applications</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {appProjects.map((project, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: index === 0 ? -30 : 30 }}
-                    animate={projectsInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
-                    whileHover={{ y: -8 }}
-                    className="group p-8 rounded-xl bg-card border-2 border-border hover:border-secondary transition-all duration-300 shadow-sm hover:shadow-xl cursor-default relative overflow-hidden"
-                  >
-                    {/* Background accent */}
-                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-bl from-secondary/20 to-primary/10 rounded-full blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-secondary transition-colors duration-300">{project.name}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 group-hover:text-foreground transition-colors">{project.description}</p>
-                    
-                    {/* Expandable tech info */}
-                    <div className="max-h-0 overflow-hidden group-hover:max-h-32 transition-all duration-500 opacity-0 group-hover:opacity-100">
-                      <div className="pt-4 border-t border-border/50">
-                        <p className="text-xs font-bold uppercase tracking-wider text-foreground mb-2">Built with</p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies?.slice(0, 2).map((tech, i) => (
-                            <span key={i} className="px-2 py-1 text-xs bg-secondary/20 text-secondary rounded font-medium">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={projectsInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-center mt-12"
-            >
-              <Link href="/portfolio">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
-                >
-                  View All Projects <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        
 
         {/* Contact Section */}
         <section ref={contactRef} className="py-24">
@@ -566,9 +449,9 @@ export default function AnantaChakraWebsite() {
         <footer className="py-12 bg-secondary border-t border-border">
           <div className="container mx-auto px-4 sm:px-6 text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <a href="https://v0-portfolio-website-builder-eight-pi.vercel.app/" className="text-3xl font-bold mb-2 text-primary">
+              {/* <a href="https://v0-portfolio-website-builder-eight-pi.vercel.app/" className="text-3xl font-bold mb-2 text-primary">
                 Aditya Kurapati
-              </a>
+              </a> */}
               <div className="text-3xl font-bold mb-2 text-primary">
                 AnantaChakra
               </div>
